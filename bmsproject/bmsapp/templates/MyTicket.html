@@ -1,0 +1,161 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>::My Ticket Details::</title>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- font awesome style -->
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="#">
+            <span>
+              Book My Show
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'bmsapp' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'myTicket' %}">My Ticket</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactUs"> Contact Us</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="job_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          BOOKED TICKET HISTORY
+        </h2>
+      </div>
+      <div class="job_container">
+        <div class="row">
+            {% for tkt in myallDataList %}
+           <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="detail-box">
+                  <h5>
+                    {{tkt.id}} . {{tkt.movieName}}
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      Theatre:-
+                      <span style="font-weight: bold;">
+                        {{tkt.cinemaTheatre}}
+                      </span>
+                    </h6>
+
+                    <h6>
+                      Seat:-
+                      <span style="font-weight: bold;">
+                        {{tkt.seatSeries}} - {{tkt.seatNo}}
+                      </span>
+                    </h6>
+                  </div><hr>
+
+                  <div class="detail-info">
+                  	<h6>
+                      Show-Time:-
+                      <span style="font-weight: bold;">
+                        {{tkt.showTime}}
+                      </span>
+                    </h6>
+                    <h6>
+                      Date:-
+                      <span style="font-weight: bold;">
+                        {{tkt.movieDate}}
+                      </span>
+                    </h6>
+
+                  </div><hr>
+
+                  <div class="detail-info">
+                    <h6>
+                      Name:-
+                      <span style="font-weight: bold;">
+                        {{tkt.patronName}}
+                      </span>
+                    </h6>
+                    <h6>
+                      Mobile:-
+                      <span style="font-weight: bold;">
+                        {{tkt.mobileNo}}
+                      </span>
+                    </h6>
+                  </div><hr>
+
+                </div>
+              </div>
+              <div class="option-box">
+                <a href="updateBooking/{{tkt.id}}" class="btn btn-warning">
+                  Update
+                </a>&nbsp;
+                <a href="deleteBooking/{{tkt.id}}" class="btn btn-danger" onclick="return confirm('Do You Want To Delete ?')">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+<!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved
+        <a href="#">Developed By HARI</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+{% load static %}
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>::Book My Ticket::</title>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- font awesome style -->
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="#">
+            <span>
+              Book My Show
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/bmsapp">Home</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link" href="myTicket">My Ticket</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactUs"> Contact Us</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 mx-auto">
+            <div class="detail-box">
+              <h1>
+                Wanna Fun Alot <br>
+                Book Your Ticket Now
+              </h1>
+              <p>
+                Make Your Moment Special Today
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="find_container ">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <form action="saveMovieData" method="post">
+                   {% csrf_token %}
+                  <div class="form-row ">
+                    <div class="form-group col-lg-3">
+                      <select name="cinemaTheatre" class="form-control wide" id="" required="required">
+                        <option value="0">Select Treater</option>
+                        <option value="PMC">Pheonix Market City</option>
+                        <option value="Multiplex">Multiplex</option>
+                        <option value="Tulsi Cinema">Tulsi Cinema</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="movieName" class="form-control wide" id="" required="required">
+                        <option value="0">Select Movie</option>
+                        <option value="Pushpa">Pushpa</option>
+                        <option value="Bahubali">Bahubali</option>
+                        <option value="Avataar">Avataar</option>
+                        <option value="Gadar">Gadar</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="showTime" class="form-control wide" id="" required="required">
+                        <option value="0">Select Show Time</option>
+                        <option value="11 AM To 2 PM">11 AM To 2 PM</option>
+                        <option value="12 PM To 3 PM">12 PM To 3 PM</option>
+                        <option value="2 PM To 5 PM">2 PM To 5 PM</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <select name="seatSeries" class="form-control wide" id="" required="required">
+                        <option value="0">Select Seat Series</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <select name="seatNo" class="form-control wide" id="" required="required">
+                        <option value="0">Select Seat No</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <input type="date" name="movieDate" class="form-control" id="" required="required">
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <input type="text" name="patronName" class="form-control" id="" placeholder="Your Name" required="required">
+                    </div>
+
+                     <div class="form-group col-lg-3">
+                      <input type="number" name="mobileNo" class="form-control" id="" placeholder="Mobile Number" required="required">
+                    </div>
+
+
+                    <div class="form-group col-lg-12" align="center">
+                      <div class="btn-box">
+                        <button type="submit" class="btn">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+  <!-- category section -->
+  <section class="category_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c1.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Wide Screen
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c2.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Best Experience
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c3.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Remarkable Moment
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c4.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Fun Alot
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c5.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Cost Saving
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c6.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Like Us
+              </h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end category section -->
+
+ 	<br><h4 style="text-align: center;color: green;">Feel Above Features At Our Multiplex</h4><br>
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved
+        <a href="#">Developed By HARI</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="static/js/bootstrap.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="static/js/custom.js"></script>
+
+
+</body>
+
+</html>

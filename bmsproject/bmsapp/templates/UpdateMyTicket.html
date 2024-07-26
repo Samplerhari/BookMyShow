@@ -1,0 +1,186 @@
+{% load static %}
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>::Book My Ticket::</title>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- font awesome style -->
+    <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="#">
+            <span>
+              Book My Show
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/bmsapp">Home</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/bmsapp/myTicket">My Ticket</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/bmsapp/contactUs"> Contact Us</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 mx-auto">
+            <div class="detail-box">
+              <p class="btn btn-warning">
+                Update Below Ticket Information
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="find_container ">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <form action="updateBookingData/{{mydata.id}}" method="post">
+                  {% csrf_token %}
+                  <div class="form-row ">
+                    <div class="form-group col-lg-3">
+                      <select name="cinemaTheatre" class="form-control wide"  required="required">
+                        <option value="{{mydata.cinemaTheatre}}">{{mydata.cinemaTheatre}}</option>
+                        <option value="PMC">Pheonix Market City</option>
+                        <option value="Multiplex">Multiplex</option>
+                        <option value="Tulsi Cinema">Tulsi Cinema</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="movieName" class="form-control wide" required="required">
+                        <option value="{{mydata.movieName}}">{{mydata.movieName}}</option>
+                        <option value="Pushpa">Pushpa</option>
+                        <option value="Bahubali">Bahubali</option>
+                        <option value="Avataar">Avataar</option>
+                        <option value="Gadar">Gadar</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="showTime" class="form-control wide" required="required">
+                        <option value="{{mydata.showTime}}">{{mydata.showTime}}</option>
+                        <option value="11 AM To 2 PM">11 AM To 2 PM</option>
+                        <option value="12 PM To 3 PM">12 PM To 3 PM</option>
+                        <option value="2 PM To 5 PM">2 PM To 5 PM</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <select name="seatSeries" class="form-control wide" required="required">
+                        <option value="{{mydata.seatSeries}}">{{mydata.seatSeries}}</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <select name="seatNo" class="form-control wide" required="required">
+                        <option value="{{mydata.seatNo}}">{{mydata.seatNo}}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <input type="date" name="movieDate" class="form-control" value="{{mydata.movieDate}}" required="required">
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <input type="text" name="patronName" class="form-control" value="{{mydata.patronName}}" required="required">
+                    </div>
+
+                    <div class="form-group col-lg-3">
+                      <input type="number" name="mobileNo" class="form-control" value="{{mydata.mobileNo}}" required="required">
+                    </div>
+
+
+                    <div class="form-group col-lg-12" align="center">
+                      <div class="btn-box">
+                        <button type="submit" class="btn ">Update Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- footer section -->
+
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved
+        <a href="#">Developed By HARI</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="static/js/bootstrap.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="static/js/custom.js"></script>
+
+
+</body>
+
+</html>
